@@ -36,10 +36,12 @@
             Password is required
           </mat-error>
         </mat-form-field>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between start">
+          <mat-checkbox formControlName="rememberMe">Remember this computer</mat-checkbox>
+          <a class="font-weight-bold mat-color-primary" routerLink="/sessions/forgot-password">Forget Password?</a>
+        </div>
 
-        <mat-checkbox formControlName="rememberMe">Remember this computer</mat-checkbox>
-
-        <div fxLayout="row wrap" fxLayoutAlign="start center" style="margin-top: 20px;">
+        <!-- <div fxLayout="row wrap" fxLayoutAlign="start center" style="margin-top: 20px;">
           <a class="font-weight-bold mat-color-primary"
             routerLink="/sessions/verify-email/aakashgupta291+1@gmail.com/27fc8d0e81580e21904c0e3ea286ec59b16f90be">Verify
             Email</a>
@@ -47,7 +49,7 @@
           <a class="font-weight-bold mat-color-primary"
             routerLink="/sessions/reset-password/aakashgupta291+1@gmail.com/27fc8d0e81580e21904c0e3ea286ec59b16f90be">Reset
             Password</a>
-        </div>
+        </div> -->
         <div fxLayout="row wrap" fxLayoutAlign="start center" style="margin-top: 20px;">
           <button mat-raised-button class="mr-16" color="primary" (click)="signin(); clicked = true;  "
             [disabled]="signinForm.invalid || clicked">Sign in
