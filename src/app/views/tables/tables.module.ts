@@ -5,7 +5,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { TablesRoutes } from './tables.routing';
 import { MaterialTableComponent } from './material-table/material-table.component';
@@ -16,8 +15,7 @@ import { MaterialTableComponent } from './material-table/material-table.componen
     MatInputModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule,
-    NgxDatatableModule,
+  MatTableModule,
     RouterModule.forChild(TablesRoutes)
   ],
   declarations: [MaterialTableComponent]

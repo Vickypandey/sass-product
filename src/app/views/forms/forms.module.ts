@@ -14,10 +14,7 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatStepperModule } from "@angular/material/stepper";
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { QuillModule } from "ngx-quill";
-import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 import { FileUploadModule } from "ng2-file-upload";
-
 import { BasicFormComponent } from "./basic-form/basic-form.component";
 import { RichTextEditorComponent } from "./rich-text-editor/rich-text-editor.component";
 import { FileUploadComponent } from "./file-upload/file-upload.component";
@@ -42,8 +39,6 @@ import { WizardComponent } from "./wizard/wizard.component";
     MatIconModule,
     MatStepperModule,
     FlexLayoutModule,
-    QuillModule,
-    NgxDatatableModule,
     FileUploadModule,
     RouterModule.forChild(FormsRoutes)
   ],

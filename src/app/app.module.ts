@@ -8,11 +8,6 @@ import {
   PERFECT_SCROLLBAR_CONFIG, 
   PerfectScrollbarConfigInterface
 } from 'ngx-perfect-scrollbar';
-
-
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './shared/inmemory-db/inmemory-db.service';
-
 import { rootRouterConfig } from './app.routing';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
@@ -35,7 +30,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     PerfectScrollbarModule,
 
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true}),
     RouterModule.forRoot(rootRouterConfig, { useHash: false })
   ],
   declarations: [AppComponent],

@@ -5,7 +5,6 @@ import {
   FormBuilder,
   FormGroup
 } from "@angular/forms";
-import { CustomValidators } from "ngx-custom-validators";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 
 @Component({
@@ -21,10 +20,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     const password = new FormControl("", Validators.required);
-    const confirmPassword = new FormControl(
-      "",
-      CustomValidators.equalTo(password)
-    );
+    const confirmPassword = new FormControl("");
 
     this.signupForm = this.fb.group({
       username: ["", Validators.required],

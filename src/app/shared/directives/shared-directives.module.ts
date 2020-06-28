@@ -8,7 +8,6 @@ import { DropdownAnchorDirective } from './dropdown-anchor.directive';
 import { DropdownLinkDirective } from './dropdown-link.directive';
 import { MatXSideNavToggleDirective } from './matx-side-nav-toggle.directive';
 import { MatXSidenavHelperDirective, MatXSidenavTogglerDirective } from './matx-sidenav-helper/matx-sidenav-helper.directive';
-import { MatXHighlightDirective } from './matx-highlight.directive';
 
 
 const directives = [
@@ -20,7 +19,6 @@ const directives = [
   MatXSideNavToggleDirective,
   MatXSidenavHelperDirective,
   MatXSidenavTogglerDirective,
-  MatXHighlightDirective
 ]
 
 @NgModule({

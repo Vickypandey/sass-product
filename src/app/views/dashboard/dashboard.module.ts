@@ -5,7 +5,6 @@ import { RouterModule } from "@angular/router";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ChartsModule } from "ng2-charts";
 import { NgxEchartsModule } from "ngx-echarts";
-import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 import { SharedPipesModule } from "app/shared/pipes/shared-pipes.module";
 
 import { DashboardRoutes } from "./dashboard.routing";
@@ -19,7 +18,6 @@ import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
     FlexLayoutModule,
     ChartsModule,
     NgxEchartsModule,
-    NgxDatatableModule,
     SharedPipesModule,
     PerfectScrollbarModule,
     RouterModule.forChild(DashboardRoutes)

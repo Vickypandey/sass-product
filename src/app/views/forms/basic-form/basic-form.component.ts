@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { CustomValidators } from "ngx-custom-validators";
 
 @Component({
   selector: "app-basic-form",
@@ -16,10 +15,7 @@ export class BasicFormComponent implements OnInit {
 
   ngOnInit() {
     let password = new FormControl("", Validators.required);
-    let confirmPassword = new FormControl(
-      "",
-      CustomValidators.equalTo(password)
-    );
+    let confirmPassword = new FormControl("");
 
     this.basicForm = new FormGroup({
       username: new FormControl("", [
@@ -28,9 +24,9 @@ export class BasicFormComponent implements OnInit {
       ]),
       firstname: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required, Validators.email]),
-      website: new FormControl("", CustomValidators.url),
+      website: new FormControl(""),
       date: new FormControl(),
-      cardno: new FormControl("", [CustomValidators.creditCard]),
+      cardno: new FormControl(""),
       phone: new FormControl("", [Validators.required]),
       password: password,
       confirmPassword: confirmPassword,

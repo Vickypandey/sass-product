@@ -5,7 +5,6 @@ import {
   Validators,
   FormControl,
 } from "@angular/forms";
-import { CustomValidators } from "ngx-custom-validators";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
 import { AppLoaderService } from "app/shared/services/app-loader/app-loader.service";
