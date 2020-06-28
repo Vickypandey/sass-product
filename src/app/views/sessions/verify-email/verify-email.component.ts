@@ -14,53 +14,58 @@ import { takeUntil } from "rxjs/operators";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-forgot-password',
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.css']
+  selector: 'app-verify-email',
+  templateUrl: './verify-email.component.html',
+  styleUrls: ['./verify-email.component.css']
 })
-export class ForgotPasswordComponent implements OnInit {
-  forgetForm: FormGroup;
-  @ViewChild(MatProgressBar) progressBar: MatProgressBar;
-  @ViewChild(MatButton) submitButton: MatButton;
+export class VerifyEmailComponent implements OnInit {
   errorMsg = "";
   return: string;
   clicked: Boolean = false;
+  parameter;
 
-  private _unsubscribeAll: Subject<any>;
+  message = ""
 
   constructor(
     private jwtAuth: JwtAuthService,
+    private fb: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute,
     private snack: MatSnackBar
   ) {
+    this.route.params.subscribe(params => this.parameter = params);
+    console.log(this.parameter)
+    return
   }
 
   ngOnInit() {
-    this.forgetForm = new FormGroup({
-      email: new FormControl("", [Validators.required, Validators.email])
-    });
+    //this.submit()
   }
 
-  submitEmail() {
+  submit() {
+    // this.submitButton.disabled = true;
+    // this.progressBar.mode = 'indeterminate';
     let body = {
-      email: this.forgetForm.value.email,
+      "email_verification_token": this.parameter.email_verification_token,
+      "email": this.parameter.email,
     };
     this.clicked = true;
-    this.jwtAuth.forgetPassword(body).subscribe(
+    this.jwtAuth.verifyEmail(body).subscribe(
       (response) => {
         this.clicked = false;
-        this.router.navigate(["sessions/signin"]);
-        this.snack.open(response.message, 'ok', {
-          duration: 2000
-        });
+        this.message = "Email Verified Successfully"
       },
       (err) => {
-        this.clicked = false;
-        this.errorMsg = err.error.error.user_authentication;
+        this.message = "Invalid Link"
+        this.errorMsg = err.error;
         this.snack.open(this.errorMsg, '', {
           duration: 2000,
         });
       }
     );
   }
+  // submitEmail() {
+  //   this.submitButton.disabled = true;
+  //   this.progressBar.mode = 'indeterminate';
+  // }
 }

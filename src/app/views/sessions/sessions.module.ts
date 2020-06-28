@@ -10,6 +10,8 @@ import { SharedComponentsModule } from 'app/shared/components/shared-components.
 
 // import { CommonDirectivesModule } from './sdirectives/common/common-directives.module';
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
+import { ResetPasswordComponent } from "./reset-password/reset-password.component";
+import { VerifyEmailComponent } from "./verify-email/verify-email.component";
 import { LockscreenComponent } from "./lockscreen/lockscreen.component";
 import { SigninComponent } from "./signin/signin.component";
 import { SignupComponent } from "./signup/signup.component";
@@ -31,6 +33,8 @@ import { ErrorComponent } from "./error/error.component";
   ],
   declarations: [
     ForgotPasswordComponent,
+    ResetPasswordComponent,
+    VerifyEmailComponent,
     LockscreenComponent,
     SigninComponent,
     SignupComponent,

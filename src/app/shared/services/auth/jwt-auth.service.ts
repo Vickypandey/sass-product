@@ -54,6 +54,46 @@ export class JwtAuthService {
     );
   }
 
+  public forgetPassword(data: any) {
+    this.signingIn = true;
+    return this.http.post(`${environment.apiURL}/forgot_password`, data).pipe(
+      map((res: any) => {
+        this.signingIn = false;
+        return res;
+      }),
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  public resetPassword(data: any) {
+    this.signingIn = true;
+    return this.http.post(`${environment.apiURL}/reset_password`, data).pipe(
+      map((res: any) => {
+        this.signingIn = false;
+        return res;
+      }),
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  public verifyEmail(data: any) {
+    this.signingIn = true;
+    return this.http.post(`${environment.apiURL}/verify_email`, data).pipe(
+      map((res: any) => {
+        this.signingIn = false;
+        return res;
+      }),
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
+
+
   public signout() {
     this.setUserAndToken(null, null, false);
     this.router.navigateByUrl("sessions/signin");
