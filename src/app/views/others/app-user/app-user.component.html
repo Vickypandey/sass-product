@@ -1,0 +1,58 @@
+<div class="ml-05 mr-05 mt-05 pb-1">
+  <mat-card class="p-0 overflow-x-auto" fxLayout="row wrap">
+    <table mat-table fxFlex [dataSource]="dataSource" class="mat-elevation-z1">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.id}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.name}}
+
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.name}}
+
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="member type">
+        <th mat-header-cell *matHeaderCellDef>Member Type</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.member_type}}
+
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="created date">
+        <th mat-header-cell *matHeaderCellDef>Created Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.created_at | date : 'dd/MM/yyyy'}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="admin">
+        <th mat-header-cell *matHeaderCellDef>Admin</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-slide-toggle class="example-margin" [checked]="element.is_admin">
+          </mat-slide-toggle>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="superuser">
+        <th mat-header-cell *matHeaderCellDef>Superuser</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-slide-toggle class="example-margin" [checked]="element.is_superuser">
+          </mat-slide-toggle>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </mat-card>
+</div>
+<button mat-fab color="primary" id="add-contact-button" (click)="newContact()" aria-label="add user">
+  <mat-icon>person_add</mat-icon>
+</button>
