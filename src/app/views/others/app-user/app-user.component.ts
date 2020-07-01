@@ -4,6 +4,7 @@ import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog"
 import { AddUserComponent } from "../add-user/add-user.component"
+import { UserPermissionModalComponent } from "../user-permission-modal/user-permission-modal.component"
 
 @Component({
   selector: 'app-user',
@@ -14,10 +15,11 @@ export class AppUserComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   loading: boolean;
   errorMsg = "";
-  displayedColumns: any[] = ["id", "name", "email", "member type", "created date", "admin", "superuser"];
+  displayedColumns: any[] = ["id", "name", "email", "member type", "created date", "admin", "superuser", 'permission'];
   dataSource: any[];
   user: any;
   addUserComponent: MatDialogRef<AddUserComponent>;
+  userPermissionModalComponent: MatDialogRef<UserPermissionModalComponent>
   userList: any[] = [];
 
   constructor(private authService: JwtAuthService, private snack: MatSnackBar, private _matDialog: MatDialog) { }
@@ -48,6 +50,15 @@ export class AppUserComponent implements OnInit {
     this.addUserComponent.afterClosed().subscribe(result => {
       this.ngOnInit()
     });
+  }
+
+  viewPermission(element) {
+    this.userPermissionModalComponent = this._matDialog.open(UserPermissionModalComponent, {
+      panelClass: 'add-user-dialog',
+      width: '400px',
+      disableClose: true,
+      data : element
+    })
   }
 
 }

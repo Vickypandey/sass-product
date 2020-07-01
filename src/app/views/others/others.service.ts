@@ -25,4 +25,19 @@ export class OthersService {
     return this.http.post(`${environment.apiURL}/api/v2/vendor_module/add_user`, data)
   }
 
+  getSingleUser(id) {
+    return this.http.get<any[]>(`${environment.apiURL}/api/v2/vendor_module/get_user?user_id=` + id);
+  }
+
+  getAllPermission() {
+    return this.http.get<any[]>(`${environment.apiURL}/api/v2/permissions`);
+  }
+
+  addPermission(data) {
+    return this.http.post<any[]>(`${environment.apiURL}/api/v2/vendor_module/add_permission`, data);
+  }
+
+  removePermission(data) {
+    return this.http.post<any[]>(`${environment.apiURL}/api/v2/vendor_module/remove_permission`, data);
+  }
 }

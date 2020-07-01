@@ -25,6 +25,7 @@ import { AppUserComponent } from "./app-user/app-user.component";
 import { OthersRoutes } from "./others.routing";
 import { AddUserComponent } from './add-user/add-user.component';
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar"
+import { UserPermissionModalComponent } from "./user-permission-modal/user-permission-modal.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +41,8 @@ import { PerfectScrollbarModule } from "ngx-perfect-scrollbar"
   ],
   declarations: [
     AppUserComponent,
-    AddUserComponent
+    AddUserComponent,
+    UserPermissionModalComponent
   ]
 })
 export class OthersModule {}

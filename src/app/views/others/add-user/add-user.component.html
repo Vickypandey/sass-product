@@ -11,6 +11,19 @@
         <form [formGroup]="addUserForm">
             <div class="pb-1">
                 <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input name="name" formControlName="name" matInput type="name">
+                    <!-- <mat-icon matSuffix class="secondary-text">email</mat-icon> -->
+                    <mat-error
+                        *ngIf="addUserForm.controls['name'].hasError('required') && addUserForm.controls['name'].touched"
+                        class="form-error-msg"> Name is required </mat-error>
+                    <mat-error
+                        *ngIf="addUserForm.controls['email'].hasError('email') && addUserForm.controls['email'].touched"
+                        class="form-error-msg"> Invaild email address </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="pb-1">
+                <mat-form-field appearance="fill" class="full-width">
                     <mat-label>Email</mat-label>
                     <input name="email" formControlName="email" matInput type="email">
                     <mat-icon matSuffix class="secondary-text">email</mat-icon>

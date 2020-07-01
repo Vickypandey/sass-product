@@ -41,6 +41,12 @@
           </mat-slide-toggle>
         </td>
       </ng-container>
+      <ng-container matColumnDef="permission">
+        <th mat-header-cell *matHeaderCellDef>Permissions</th>
+        <td mat-cell *matCellDef="let element">
+          <mat-icon (click)="viewPermission(element)">lock</mat-icon>
+        </td>
+      </ng-container>
       <ng-container matColumnDef="superuser">
         <th mat-header-cell *matHeaderCellDef>Superuser</th>
         <td mat-cell *matCellDef="let element">
