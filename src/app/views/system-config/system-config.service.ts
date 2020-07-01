@@ -46,5 +46,17 @@ export class SystemConfigService {
     return this.http.put(`${environment.apiURL}/api/v2/lead_stages/` + id, data)
   }
 
+  getAllPermission() {
+    return this.http.get<any[]>(`${environment.apiURL}/api/v2/permissions`);
+  }
+
+  addPermission(data): Observable<any> {
+    return this.http.post(`${environment.apiURL}/api/v2/permissions`, data)
+  }
+
+  editPermission(id, data): Observable<any> {
+    return this.http.put(`${environment.apiURL}/api/v2/permissions/` + id, data)
+  }
+
 
 }

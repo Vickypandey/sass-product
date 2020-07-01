@@ -5,6 +5,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { LeadSourceComponent } from "./lead-source/lead-source.component";
 import { LeadTypeComponent } from "./lead-type/lead-type.component";
 import { LeadStageComponent } from "./lead-stage/lead-stage.component"
+import { PermissionComponent } from "./permission/permission.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
         path: "lead-stage",
         component: LeadStageComponent,
         data: { title: "Lead Stage", breadcrumb: "Lead Stage" },
+      },
+      {
+        path: "permission",
+        component: PermissionComponent,
+        data: { title: "Permission", breadcrumb: "Permission" },
       },
     ],
   },

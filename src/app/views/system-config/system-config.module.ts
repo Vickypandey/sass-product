@@ -11,10 +11,21 @@ import { LeadStageComponent } from './lead-stage/lead-stage.component';
 import { LeadSourceModalComponent } from './lead-source/lead-source-modal/lead-source-modal.component';
 import { LeadTypeModalComponent } from './lead-type/lead-type-modal/lead-type-modal.component';
 import { LeadStageModalComponent } from './lead-stage/lead-stage-modal/lead-stage-modal.component';
+import { PermissionComponent } from './permission/permission.component';
+import { PermissionModalComponent } from './permission/permission-modal/permission-modal.component';
 
 
 @NgModule({
-  declarations: [LeadSourceComponent, LeadSourceModalComponent, LeadTypeModalComponent, LeadTypeComponent, LeadStageComponent, LeadStageModalComponent],
+  declarations: [
+    LeadSourceComponent, 
+    LeadSourceModalComponent, 
+    LeadTypeModalComponent, 
+    LeadTypeComponent, 
+    LeadStageComponent, 
+    LeadStageModalComponent,
+    PermissionComponent,
+    PermissionModalComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,

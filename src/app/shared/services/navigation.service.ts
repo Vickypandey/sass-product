@@ -65,6 +65,7 @@ export class NavigationService {
         { name: "Lead Source", state: "lead-source" },
         { name: "Lead Type", state: "lead-type" },
         { name: "Lead Stage", state: "lead-stage" },
+        { name: "Permissions", state: "permission" },
       ],
     },
     {
