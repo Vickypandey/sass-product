@@ -40,4 +40,15 @@ export class OthersService {
   removePermission(data) {
     return this.http.post<any[]>(`${environment.apiURL}/api/v2/vendor_module/remove_permission`, data);
   }
+
+  getClients() {
+    return this.http.get<any[]>(`${environment.apiURL}/clients`);
+  }
+
+  addClient(data) {
+    return this.http.post<any[]>(`${environment.apiURL}/api/v2/vendor_module/signup_client`, data);
+  }
+  editClient(id, data) {
+    return this.http.put<any[]>(`${environment.apiURL}/clients/` + id, data);
+  }
 }

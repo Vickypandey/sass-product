@@ -3,8 +3,8 @@ import { MatSort } from '@angular/material/sort';
 import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog"
-import { AddUserComponent } from "../add-user/add-user.component"
-import { UserPermissionModalComponent } from "../user-permission-modal/user-permission-modal.component"
+import { AddUserComponent } from "./add-user/add-user.component"
+import { UserPermissionModalComponent } from "./user-permission-modal/user-permission-modal.component"
 
 @Component({
   selector: 'app-user',

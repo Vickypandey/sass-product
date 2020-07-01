@@ -23,9 +23,11 @@ import { SharedMaterialModule } from "app/shared/shared-material.module";
 
 import { AppUserComponent } from "./app-user/app-user.component";
 import { OthersRoutes } from "./others.routing";
-import { AddUserComponent } from './add-user/add-user.component';
+import { AddUserComponent } from './app-user/add-user/add-user.component';
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar"
-import { UserPermissionModalComponent } from "./user-permission-modal/user-permission-modal.component";
+import { UserPermissionModalComponent } from "./app-user/user-permission-modal/user-permission-modal.component";
+import { ClientComponent } from "./client/client.component";
+import { ClientModalComponent } from "./client/client-modal/client-modal.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -42,7 +44,9 @@ import { UserPermissionModalComponent } from "./user-permission-modal/user-permi
   declarations: [
     AppUserComponent,
     AddUserComponent,
-    UserPermissionModalComponent
+    UserPermissionModalComponent,
+    ClientComponent,
+    ClientModalComponent,
   ]
 })
 export class OthersModule {}

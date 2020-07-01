@@ -75,6 +75,18 @@ export class NavigationService {
       state: "pages/users",
     },
     {
+      name: "Leads",
+      type: "link",
+      icon: "people",
+      state: "pages/leads",
+    },
+    {
+      name: "Clients",
+      type: "link",
+      icon: "people",
+      state: "pages/clients",
+    },
+    {
       name: "COMPONENTS",
       type: "separator",
     },

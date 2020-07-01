@@ -1,0 +1,128 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar matDialogTitle class="mat-primary m-0">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title dialog-title">New Client</span>
+            <button mat-icon-button aria-label="Close dialog" (click)="dialogRef.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div mat-dialog-content class="p-24 pb-0 m-0">
+        <form [formGroup]="addClientForm">
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px" *ngIf="type != 'edit'">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input name="name" formControlName="name" matInput type="name">
+                    <mat-error
+                        *ngIf="addClientForm.controls['name'].hasError('required') && addClientForm.controls['name'].touched"
+                        class="form-error-msg"> Name is required </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input name="email" formControlName="email" matInput type="email">
+                    <mat-error
+                        *ngIf="addClientForm.controls['email'].hasError('required') && addClientForm.controls['email'].touched"
+                        class="form-error-msg"> Email is required </mat-error>
+                    <mat-error
+                        *ngIf="addClientForm.controls['email'].hasError('email') && addClientForm.controls['email'].touched"
+                        class="form-error-msg"> Invaild email address </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input type="password" [type]="hide ? 'password' : 'text'" name="password" matInput
+                        formControlName="password" placeholder="Password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error
+                        *ngIf="addClientForm.controls['password'].hasError('required') && addClientForm.controls['password'].touched"
+                        class="form-error-msg"> Password is required </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Company Name</mat-label>
+                    <input name="company_name" formControlName="company_name" matInput type="text">
+                    <mat-error
+                        *ngIf="addClientForm.controls['company_name'].hasError('required') && addClientForm.controls['company_name'].touched"
+                        class="form-error-msg"> Company Name is required </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Address</mat-label>
+                    <input name="address" formControlName="address" matInput type="text">
+                    <mat-error
+                        *ngIf="addClientForm.controls['address'].hasError('required') && addClientForm.controls['address'].touched"
+                        class="form-error-msg"> Address is required </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>City</mat-label>
+                    <input name="city" formControlName="city" matInput type="text">
+                    <mat-error
+                        *ngIf="addClientForm.controls['city'].hasError('required') && addClientForm.controls['city'].touched"
+                        class="form-error-msg"> City is required </mat-error>
+                </mat-form-field>
+
+            </div>
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>State</mat-label>
+                    <input name="state" formControlName="state" matInput type="text">
+                    <mat-error
+                        *ngIf="addClientForm.controls['state'].hasError('required') && addClientForm.controls['state'].touched"
+                        class="form-error-msg"> State is required </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Country</mat-label>
+                    <input name="country" formControlName="country" matInput type="text">
+                    <mat-error
+                        *ngIf="addClientForm.controls['address'].hasError('required') && addClientForm.controls['address'].touched"
+                        class="form-error-msg"> Country is required </mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>pincode</mat-label>
+                    <input name="pincode" formControlName="pincode" matInput type="number">
+                    <mat-error
+                        *ngIf="addClientForm.controls['pincode'].hasError('required') && addClientForm.controls['pincode'].touched"
+                        class="form-error-msg"> Pincode is required </mat-error>
+                </mat-form-field>
+
+            </div>
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>GST Number</mat-label>
+                    <input name="gst_number" formControlName="gst_number" matInput type="text">
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Alternate Email</mat-label>
+                    <input name="alternate_email" formControlName="alternate_email" matInput type="text">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Website URL</mat-label>
+                    <input name="website_url" formControlName="website_url" matInput type="number">
+                </mat-form-field>
+            </div>
+
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px">
+                <textarea name="description" cols="30" rows="5" style="width: 100%;"
+                    placeholder="Write Something Here..." fornControlName="description"></textarea>
+            </div>
+        </form>
+    </div>
+    <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="end center">
+        <!-- FOr Create-->
+        <button mat-raised-button color="primary" *ngIf="btnStatus && type == ''" disabled
+            aria-label="SAVE">ADD</button>
+        <button mat-raised-button color="primary" *ngIf="!btnStatus && type == ''" [disabled]="addClientForm.invalid"
+            (click)="create()" aria-label="SAVE">ADD</button>
+        <!-- FOr Edit-->
+        <button mat-raised-button color="primary" *ngIf="btnStatus && type == 'edit'" disabled
+            aria-label="SAVE">UPDATE</button>
+        <button mat-raised-button color="primary" *ngIf="!btnStatus && type == 'edit'"
+            [disabled]="addClientForm.invalid" (click)="edit()" aria-label="SAVE">UPDATE</button>
+    </div>
+</div>
