@@ -14,6 +14,14 @@ export class SystemConfigService {
     return this.http.get<any[]>(`${environment.apiURL}/api/v2/lead_types`);
   }
 
+  addLeadType(data): Observable<any> {
+    return this.http.post(`${environment.apiURL}/api/v2/lead_types`, data)
+  }
+
+  editLeadType(id, data): Observable<any> {
+    return this.http.put(`${environment.apiURL}/api/v2/lead_types/` + id, data)
+  }
+
   getAllLeadSource() {
     return this.http.get<any[]>(`${environment.apiURL}/api/v2/lead_sources`);
   }
@@ -28,6 +36,14 @@ export class SystemConfigService {
 
   getAllLeadStage() {
     return this.http.get<any[]>(`${environment.apiURL}/api/v2/lead_stages`);
+  }
+
+  addLeadStage(data): Observable<any> {
+    return this.http.post(`${environment.apiURL}/api/v2/lead_stages`, data)
+  }
+
+  editLeadStage(id, data): Observable<any> {
+    return this.http.put(`${environment.apiURL}/api/v2/lead_stages/` + id, data)
   }
 
 

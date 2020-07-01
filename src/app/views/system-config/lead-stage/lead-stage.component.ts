@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStoreService } from "app/shared/services/local-store.service";
-import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
 import { SystemConfigService } from "app/views/system-config/system-config.service"
+import { LeadStageModalComponent } from "../lead-stage/lead-stage-modal/lead-stage-modal.component"
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-lead-stage',
@@ -15,12 +16,8 @@ export class LeadStageComponent implements OnInit {
 
   displayedColumns: string[] = ["name", "active", "created date", "updated date", "action"];
   leadStageList: any = [];
-
-  constructor(
-    private ls: LocalStoreService,
-    private authService: JwtAuthService,
-    private systemConfigService: SystemConfigService,
-  ) { }
+  leadStageModalComponent: MatDialogRef<LeadStageModalComponent>
+  constructor(private systemConfigService: SystemConfigService, private _matDialog: MatDialog, public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getLeadStages();
@@ -39,4 +36,50 @@ export class LeadStageComponent implements OnInit {
     );
   }
 
+  create() {
+    this.leadStageModalComponent = this._matDialog.open(LeadStageModalComponent, {
+      panelClass: 'add-user-dialog',
+      width: '400px',
+      disableClose: true
+    })
+    this.leadStageModalComponent.afterClosed().subscribe(result => {
+      if(result != undefined){
+        this.getLeadStages()
+      }
+    });
+  }
+
+  edit(element) {
+    let body = {
+      leadSource: element,
+      type: 'edit'
+    }
+    this.leadStageModalComponent = this._matDialog.open(LeadStageModalComponent, {
+      panelClass: 'add-user-dialog',
+      width: '400px',
+      disableClose: true,
+      data: body
+    })
+    this.leadStageModalComponent.afterClosed().subscribe(result => {
+      if(result != undefined){
+        this.getLeadStages()
+      }
+    });
+  }
+
+  changeStatus(element, event) {
+    let body = {
+      "active": event.checked,
+    }
+    this.systemConfigService.editLeadStage(element.id, body).subscribe(
+      data => {
+        this.snackBar.open("Lead Source Updated Successfully", '', {
+          duration: 2000,
+        });
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
 }

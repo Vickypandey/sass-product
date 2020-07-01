@@ -1,0 +1,33 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar matDialogTitle class="mat-primary m-0">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title dialog-title" *ngIf="type == ''"> New Lead Stage</span>
+            <span class="title dialog-title" *ngIf="type == 'edit'">Update Lead Stage</span>
+            <button mat-icon-button aria-label="Close dialog" (click)="dialogRef.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div mat-dialog-content class="p-24 pb-0 m-0">
+        <form [formGroup]="addLeadStageForm">
+            <div class="pb-1">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input name="name" formControlName="name" matInput type="text">
+                    <mat-error *ngIf="addLeadStageForm.controls['name'].hasError('required')" class=" form-error-msg">
+                        Name is required </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="end center">
+        <button mat-raised-button color="primary" *ngIf="btnStatus && type == ''" disabled
+            aria-label="SAVE">ADD</button>
+        <button mat-raised-button color="primary" *ngIf="!btnStatus && type == ''" [disabled]="addLeadStageForm.invalid"
+            (click)="create()" aria-label="SAVE">ADD</button>
+        <button mat-raised-button color="primary" *ngIf="btnStatus && type == 'edit'" disabled
+            aria-label="SAVE">UPDATE</button>
+        <button mat-raised-button color="primary" *ngIf="!btnStatus && type == 'edit'"
+            [disabled]="addLeadStageForm.invalid" (click)="edit()" aria-label="SAVE">UPDATE</button>
+    </div>
+</div>
