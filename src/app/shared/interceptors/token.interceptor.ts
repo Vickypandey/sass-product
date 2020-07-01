@@ -57,7 +57,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
           if (error.error instanceof ErrorEvent) {
             this.jwtAuth.signout()
-            location.reload(true);
+            // location.reload(true);
             // client-side error
 
             errorMessage = `Error: ${error.error.message}`;
@@ -66,7 +66,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
             // server-side error
             this.jwtAuth.signout()
-            location.reload(true);
+            // location.reload(true);
             errorMessage = `${error.message}`;
 
           }

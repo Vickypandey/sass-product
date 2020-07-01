@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { MatDialog } from "@angular/material/dialog"
+import { MatDialog, MatDialogRef } from "@angular/material/dialog"
 import { AddUserComponent } from "../add-user/add-user.component"
 
 @Component({
@@ -17,6 +17,7 @@ export class AppUserComponent implements OnInit {
   displayedColumns: any[] = ["id", "name", "email", "member type", "created date", "admin", "superuser"];
   dataSource: any[];
   user: any;
+  addUserComponent: MatDialogRef<AddUserComponent>;
   userList: any[] = [];
 
   constructor(private authService: JwtAuthService, private snack: MatSnackBar, private _matDialog: MatDialog) { }
@@ -39,11 +40,14 @@ export class AppUserComponent implements OnInit {
   }
 
   newContact() {
-    this._matDialog.open(AddUserComponent, {
+    this.addUserComponent = this._matDialog.open(AddUserComponent, {
       panelClass: 'add-user-dialog',
       width: '400px',
       disableClose: true
     })
+    this.addUserComponent.afterClosed().subscribe(result => {
+      this.ngOnInit()
+    });
   }
 
 }

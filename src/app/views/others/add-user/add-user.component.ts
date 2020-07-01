@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { OthersService } from "../others.service"
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -14,7 +15,11 @@ export class AddUserComponent implements OnInit {
   addUserForm: FormGroup;
   hide = true;
 
-  constructor(public otherService: OthersService, public dialogRef: MatDialogRef<AddUserComponent>) { }
+  constructor(
+    public otherService: OthersService,
+    public snackBar: MatSnackBar,
+    public dialogRef: MatDialogRef<AddUserComponent>
+  ) { }
 
   ngOnInit(): void {
 
@@ -32,6 +37,11 @@ export class AddUserComponent implements OnInit {
     this.otherService.addUser(body).subscribe(
       data => {
         console.log(data)
+        this.snackBar.open("User Added Successfully", '', {
+          duration: 2000,
+        });
+        this.dialogRef.close("User Added Successfully")
+
       },
       err => {
         console.log(err)

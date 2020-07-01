@@ -18,6 +18,14 @@ export class SystemConfigService {
     return this.http.get<any[]>(`${environment.apiURL}/api/v2/lead_sources`);
   }
 
+  addLeadSource(data): Observable<any> {
+    return this.http.post(`${environment.apiURL}/api/v2/lead_sources`, data)
+  }
+
+  editLeadSource(id, data): Observable<any> {
+    return this.http.put(`${environment.apiURL}/api/v2/lead_sources/` + id, data)
+  }
+
   getAllLeadStage() {
     return this.http.get<any[]>(`${environment.apiURL}/api/v2/lead_stages`);
   }
