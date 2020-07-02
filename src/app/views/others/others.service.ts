@@ -51,4 +51,15 @@ export class OthersService {
   editClient(id, data) {
     return this.http.put<any[]>(`${environment.apiURL}/clients/` + id, data);
   }
+
+  getLeads() {
+    return this.http.get<any[]>(`${environment.apiURL}/api/v2/vendor_module/leads`);
+  }
+
+  addLead(data) {
+    return this.http.post<any[]>(`${environment.apiURL}/api/v2/vendor_module/leads`, data);
+  }
+  editLead(id, data) {
+    return this.http.put<any[]>(`${environment.apiURL}/api/v2/vendor_module/leads/` + id, data);
+  }
 }

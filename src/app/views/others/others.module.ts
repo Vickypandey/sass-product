@@ -28,6 +28,8 @@ import { PerfectScrollbarModule } from "ngx-perfect-scrollbar"
 import { UserPermissionModalComponent } from "./app-user/user-permission-modal/user-permission-modal.component";
 import { ClientComponent } from "./client/client.component";
 import { ClientModalComponent } from "./client/client-modal/client-modal.component";
+import { LeadComponent } from "./leads/leads.component";
+import { LeadModalComponent } from "./leads/leads-modal/leads-modal.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -47,6 +49,8 @@ import { ClientModalComponent } from "./client/client-modal/client-modal.compone
     UserPermissionModalComponent,
     ClientComponent,
     ClientModalComponent,
+    LeadComponent,
+    LeadModalComponent
   ]
 })
 export class OthersModule {}
