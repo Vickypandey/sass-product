@@ -9,7 +9,7 @@
     </mat-toolbar>
     <div mat-dialog-content class="p-24 pb-0 m-0">
         <div class="pb-1">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="outline">
                 <mat-label>Select Permissions</mat-label>
                 <mat-select (selectionChange)="selectPermission()" [(ngModel)]="selectedPermission">
                     <mat-option *ngFor="let permission of permissionList" [value]="permission">{{permission.name}}

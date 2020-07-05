@@ -10,14 +10,14 @@
     <div mat-dialog-content class="p-24 pb-0 m-0">
         <form [formGroup]="addClientForm">
             <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px" *ngIf="type != 'edit'">
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Name</mat-label>
                     <input name="name" formControlName="name" matInput type="name">
                     <mat-error
                         *ngIf="addClientForm.controls['name'].hasError('required') && addClientForm.controls['name'].touched"
                         class="form-error-msg"> Name is required </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Email</mat-label>
                     <input name="email" formControlName="email" matInput type="email">
                     <mat-error
@@ -27,7 +27,7 @@
                         *ngIf="addClientForm.controls['email'].hasError('email') && addClientForm.controls['email'].touched"
                         class="form-error-msg"> Invaild email address </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Password</mat-label>
                     <input type="password" [type]="hide ? 'password' : 'text'" name="password" matInput
                         formControlName="password" placeholder="Password">
@@ -42,14 +42,14 @@
             </div>
 
             <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Company Name</mat-label>
                     <input name="company_name" formControlName="company_name" matInput type="text">
                     <mat-error
                         *ngIf="addClientForm.controls['company_name'].hasError('required') && addClientForm.controls['company_name'].touched"
                         class="form-error-msg"> Company Name is required </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Address</mat-label>
                     <input name="address" formControlName="address" matInput type="text">
                     <mat-error
@@ -57,7 +57,7 @@
                         class="form-error-msg"> Address is required </mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>City</mat-label>
                     <input name="city" formControlName="city" matInput type="text">
                     <mat-error
@@ -67,14 +67,14 @@
 
             </div>
             <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>State</mat-label>
                     <input name="state" formControlName="state" matInput type="text">
                     <mat-error
                         *ngIf="addClientForm.controls['state'].hasError('required') && addClientForm.controls['state'].touched"
                         class="form-error-msg"> State is required </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Country</mat-label>
                     <input name="country" formControlName="country" matInput type="text">
                     <mat-error
@@ -82,7 +82,7 @@
                         class="form-error-msg"> Country is required </mat-error>
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>pincode</mat-label>
                     <input name="pincode" formControlName="pincode" matInput type="number">
                     <mat-error
@@ -92,16 +92,16 @@
 
             </div>
             <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>GST Number</mat-label>
                     <input name="gst_number" formControlName="gst_number" matInput type="text">
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Alternate Email</mat-label>
                     <input name="alternate_email" formControlName="alternate_email" matInput type="text">
                 </mat-form-field>
 
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Website URL</mat-label>
                     <input name="website_url" formControlName="website_url" matInput type="number">
                 </mat-form-field>

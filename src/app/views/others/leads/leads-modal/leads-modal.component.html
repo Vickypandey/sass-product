@@ -10,7 +10,7 @@
     <div mat-dialog-content class="p-24 pb-0 m-0">
         <form [formGroup]="addLeadForm">
             <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Select</mat-label>
                     <mat-select formControlName="salutaion">
                         <mat-option value="Mr.">Mr.</mat-option>
@@ -21,14 +21,14 @@
                         *ngIf="addLeadForm.controls['salutaion'].hasError('required') && addLeadForm.controls['salutaion'].touched"
                         class="form-error-msg">Salutation is required </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>First Name</mat-label>
                     <input name="first_name" formControlName="first_name" matInput type="text">
                     <mat-error
                         *ngIf="addLeadForm.controls['first_name'].hasError('required') && addLeadForm.controls['first_name'].touched"
                         class="form-error-msg"> First Name is required </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Last Name</mat-label>
                     <input name="last_name" formControlName="last_name" matInput type="text">
                     <mat-error
@@ -37,14 +37,14 @@
                 </mat-form-field>
             </div>
             <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Phone</mat-label>
                     <input name="phone" formControlName="phone" matInput type="number">
                     <mat-error
                         *ngIf="addLeadForm.controls['phone'].hasError('required') && addLeadForm.controls['phone'].touched"
                         class="form-error-msg">Phone is required </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Email</mat-label>
                     <input name="email" formControlName="email" matInput type="email">
                     <mat-error
@@ -54,14 +54,14 @@
                         *ngIf="addLeadForm.controls['email'].hasError('email') && addLeadForm.controls['email'].touched"
                         class="form-error-msg"> Invaild email address </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Alternate Email</mat-label>
                     <input name="alternate_email" formControlName="alternate_email" matInput type="email">
                 </mat-form-field>
             </div>
 
             <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Select Sources</mat-label>
                     <mat-select formControlName="lead_source_id">
                         <mat-option *ngFor="let item of sources" [value]="item.id">{{item.name}}</mat-option>
@@ -70,7 +70,7 @@
                         *ngIf="addLeadForm.controls['lead_source_id'].hasError('required') && addLeadForm.controls['lead_source_id'].touched"
                         class="form-error-msg"> Source is required </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Select Type</mat-label>
                     <mat-select formControlName="lead_type_id">
                         <mat-option *ngFor="let item of leadTypes" [value]="item.id">{{item.name}}</mat-option>
@@ -79,7 +79,7 @@
                         *ngIf="addLeadForm.controls['lead_type_id'].hasError('required') && addLeadForm.controls['lead_type_id'].touched"
                         class="form-error-msg"> Type is required </mat-error>
                 </mat-form-field>
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Select Stage</mat-label>
                     <mat-select formControlName="lead_stage_id">
                         <mat-option *ngFor="let item of leadStages" [value]="item.id">{{item.name}}</mat-option>
@@ -90,7 +90,7 @@
                 </mat-form-field>
             </div>
             <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-                <mat-form-field appearance="fill" class="full-width">
+                <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Service Intrested In</mat-label>
                     <input name="phone" formControlName="service_intrested_in" matInput type="text">
                 </mat-form-field>
