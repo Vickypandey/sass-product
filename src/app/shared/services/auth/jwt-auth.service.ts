@@ -4,19 +4,9 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { map, catchError, delay, retry } from "rxjs/operators";
 import { User } from "../../models/user.model";
-import { Observable, of, BehaviorSubject, throwError } from "rxjs";
+import { Observable, of, BehaviorSubject, throwError, Subscription } from "rxjs";
 import { environment } from "environments/environment";
 
-// ================= only for demo purpose ===========
-const DEMO_TOKEN =
-  "eyJfaWQiOiI1YjhkNDc4MDc4NmM3MjE3MjBkYzU1NzMiLCJlbWFpbCI6InJhZmkuYm9ncmFAZ21haWwuY29tIiwicm9sZSI6IlNBIiwiYWN0aXZlIjp0cnVlLCJpYXQiOjE1ODc3MTc2NTgsImV4cCI6MTU4ODMyMjQ1OH0.dXw0ySun5ex98dOzTEk0lkmXJvxg3Qgz4ed";
-
-const DEMO_USER: User = {
-  id: "4sa00c45639d2c0c54b354ba",
-  displayName: "John Doe",
-  role: "SA",
-};
-// ================= you will get those data from server =======
 
 @Injectable({
   providedIn: "root",
@@ -45,13 +35,19 @@ export class JwtAuthService {
     return this.http.post(`${environment.apiURL}/authenticate`, data).pipe(
       map((res: any) => {
         this.setUserAndToken(res.auth_token, res.user, !!res);
+        this.userInfo()
         this.signingIn = false;
+        this
         return res;
       }),
       catchError((error) => {
         return throwError(error);
       })
     );
+  }
+
+  userInfo() {
+    return this.http.get<any[]>(`${environment.apiURL}/user_info`);
   }
 
   public forgetPassword(data: any) {
@@ -95,6 +91,7 @@ export class JwtAuthService {
 
 
   public signout() {
+    location.reload()
     this.setUserAndToken(null, null, false);
     this.router.navigateByUrl("sessions/signin");
   }

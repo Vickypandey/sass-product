@@ -26,167 +26,76 @@ interface IBadge {
 
 @Injectable()
 export class NavigationService {
-  constructor() {}
-  iconMenu: IMenuItem[] = [
-    {
-      name: "Dashboard",
-      type: "link",
-      tooltip: "Dashboard",
-      icon: "dashboard",
-      state: "dashboard/analytics",
-    },
-    {
-      name: "PAGES",
-      type: "separator",
-    },
-    // {
-    //   name: "Sessions",
-    //   type: "dropDown",
-    //   tooltip: "Pages",
-    //   icon: "how_to_reg",
-    //   state: "sessions",
-    //   badges: [{ color: "primary", value: "6" }],
-    //   sub: [
-    //     { name: "Sign up", state: "signup" },
-    //     { name: "Sign in", state: "signin" },
-    //     { name: "Forgot", state: "forgot-password" },
-    //     { name: "Lock screen", state: "lockscreen" },
-    //     { name: "Not Found", state: "404" },
-    //     { name: "Error", state: "error" },
-    //   ],
-    // },
-    {
-      name: "System Config",
-      type: "dropDown",
-      tooltip: "System Config",
-      icon: "how_to_reg",
-      state: "system-config",
-      sub: [
-        { name: "Lead Source", state: "lead-source" },
-        { name: "Lead Type", state: "lead-type" },
-        { name: "Lead Stage", state: "lead-stage" },
-        { name: "Permissions", state: "permission" },
-      ],
-    },
-    {
-      name: "Users",
-      type: "link",
-      icon: "people",
-      state: "pages/users",
-    },
-    {
-      name: "Leads",
-      type: "link",
-      icon: "people",
-      state: "pages/leads",
-    },
-    {
-      name: "Clients",
-      type: "link",
-      icon: "people",
-      state: "pages/clients",
-    },
-    {
-      name: "COMPONENTS",
-      type: "separator",
-    },
-    // {
-    //   name: "Forms",
-    //   type: "dropDown",
-    //   tooltip: "Forms",
-    //   icon: "description",
-    //   state: "forms",
-    //   sub: [
-    //     { name: "Basic", state: "basic" },
-    //     { name: "Editor", state: "editor" },
-    //     { name: "Upload", state: "upload" },
-    //     { name: "Wizard", state: "wizard" },
-    //   ],
-    // },
-    // {
-    //   name: "Data Table",
-    //   type: "link",
-    //   tooltip: "Tables",
-    //   icon: "format_line_spacing",
-    //   state: "tables/mat-table",
-    // },
-    // {
-    //   name: "Material Kit",
-    //   type: "link",
-    //   icon: "move_to_inbox",
-    //   state: "mat-kits",
-    // },
-    // {
-    //   name: "OTHERS",
-    //   type: "separator",
-    // },
-    // {
-    //   name: "Icons",
-    //   type: "link",
-    //   tooltip: "Material Icons",
-    //   icon: "store",
-    //   state: "icons",
-    // },
-    // {
-    //   name: "Multi Level",
-    //   type: "dropDown",
-    //   tooltip: "Multi Level",
-    //   icon: "format_align_center",
-    //   state: "",
-    //   sub: [
-    //     {
-    //       name: "Level Two",
-    //       type: "dropDown",
-    //       state: "fake-1",
-    //       sub: [
-    //         { name: "Level Three", state: "fake-2" },
-    //         { name: "Level Three", state: "fake-3" },
-    //       ],
-    //     },
-    //     { name: "Level Two", state: "fake-4" },
-    //     { name: "Level Two", state: "fake-5" },
-    //   ],
-    // },
-    // {
-    //   name: "Documentation",
-    //   type: "e{
-    //     name: "Icons",
-    //     type: "link",
-    //     tooltip: "Material Icons",
-    //     icon: "store",
-    //     state: "icons",
-    //   },
-    //   {
-    //     name: "Multi Level",
-    //     type: "dropDown",
-    //     tooltip: "Multi Level",
-    //     icon: "format_align_center",
-    //     state: "",
-    //     sub: [
-    //       {
-    //         name: "Level Two",
-    //         type: "dropDown",
-    //         state: "fake-1",
-    //         sub: [
-    //           { name: "Level Three", state: "fake-2" },
-    //           { name: "Level Three", state: "fake-3" },
-    //         ],
-    //       },
-    //       { name: "Level Two", state: "fake-4" },
-    //       { name: "Level Two", state: "fake-5" },
-    //     ],
-    //   },
-    //   {xtLink",
-    //   icon: "library_books",
-    //   state: "http://demos.ui-lib.com/matx-angular-doc/",
-    // },
-    // {
-    //   name: "Upgrade to PRO",
-    //   type: "extLink",
-    //   icon: "present_to_all",
-    //   state: "http://matx-angular.ui-lib.com",
-    // },
-  ];
+  userInfo: any = {}
+  dashboard = {
+    name: "Dashboard",
+    type: "link",
+    tooltip: "Dashboard",
+    icon: "dashboard",
+    state: "dashboard/analytics",
+  }
+  pages = {
+    name: "PAGES",
+    type: "separator",
+  }
+  systemConfig = {
+    name: "System Config",
+    type: "dropDown",
+    tooltip: "System Config",
+    icon: "how_to_reg",
+    state: "system-config",
+    sub: [
+      { name: "Lead Source", state: "lead-source" },
+      { name: "Lead Type", state: "lead-type" },
+      { name: "Lead Stage", state: "lead-stage" },
+      { name: "Permissions", state: "permission" },
+    ],
+  }
+  users = {
+    name: "Users",
+    type: "link",
+    icon: "people",
+    state: "pages/users",
+  }
+  leads = {
+    name: "Leads",
+    type: "link",
+    icon: "people",
+    state: "pages/leads",
+  }
+  clients = {
+    name: "Clients",
+    type: "link",
+    icon: "people",
+    state: "pages/clients",
+  }
+  iconMenu: IMenuItem[] = [{
+    name: "Dashboard",
+    type: "link",
+    tooltip: "Dashboard",
+    icon: "dashboard",
+    state: "dashboard/analytics",
+  }];
+  constructor() {
+    setTimeout(() => {
+      this.userInfo = JSON.parse(localStorage.getItem("userInfo"))
+      console.log(this.userInfo)
+      if (this.userInfo != null) {
+        if (this.userInfo.is_superuser) {
+          this.iconMenu.push(this.pages)
+          this.iconMenu.push(this.systemConfig)
+          this.iconMenu.push(this.users)
+          this.iconMenu.push(this.leads)
+          this.iconMenu.push(this.clients)
+        } else if (this.userInfo.member_type == "Vendor" && !this.userInfo.is_superuser) {
+          this.iconMenu.push(this.pages)
+          this.iconMenu.push(this.leads)
+        }
+      }
+      console.log(this.iconMenu)
+    }, 500)
+  }
+
 
   // Icon menu TITLE at the very top of navigation.
   // This title will appear if any icon type item is present in menu.

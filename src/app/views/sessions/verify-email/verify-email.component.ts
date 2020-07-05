@@ -34,12 +34,11 @@ export class VerifyEmailComponent implements OnInit {
     private snack: MatSnackBar
   ) {
     this.route.params.subscribe(params => this.parameter = params);
-    console.log(this.parameter)
     return
   }
 
   ngOnInit() {
-    //this.submit()
+    this.submit()
   }
 
   submit() {
@@ -57,10 +56,6 @@ export class VerifyEmailComponent implements OnInit {
       },
       (err) => {
         this.message = "Invalid Link"
-        this.errorMsg = err.error;
-        this.snack.open(this.errorMsg, '', {
-          duration: 2000,
-        });
       }
     );
   }

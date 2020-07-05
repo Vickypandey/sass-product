@@ -35,7 +35,7 @@ export const SessionsRoutes: Routes = [
         data: { title: "Reset password" },
       },
       {
-        path: "verify-email/:email/:email_verification_token",
+        path: "verifyEmail/:email/:email_verification_token",
         component: VerifyEmailComponent,
         data: { title: "Verify Email" },
       },

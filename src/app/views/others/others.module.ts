@@ -30,6 +30,7 @@ import { ClientComponent } from "./client/client.component";
 import { ClientModalComponent } from "./client/client-modal/client-modal.component";
 import { LeadComponent } from "./leads/leads.component";
 import { LeadModalComponent } from "./leads/leads-modal/leads-modal.component";
+import { ProfileComponent } from "./profile/profile.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -50,7 +51,8 @@ import { LeadModalComponent } from "./leads/leads-modal/leads-modal.component";
     ClientComponent,
     ClientModalComponent,
     LeadComponent,
-    LeadModalComponent
+    LeadModalComponent,
+    ProfileComponent
   ]
 })
 export class OthersModule {}

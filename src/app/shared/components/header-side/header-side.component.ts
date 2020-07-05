@@ -72,4 +72,10 @@ export class HeaderSideComponent implements OnInit {
   onSearch(e) {
     //   console.log(e)
   }
+
+  logout(){
+    localStorage.clear()
+    sessionStorage.clear()
+    this.jwtAuth.signout()
+  }
 }

@@ -85,7 +85,6 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   checkServerError(err, token) {
-    debugger
     if (err.status == 401) {
       let msg = err.error;
       if (msg.error == "Not Authorized") {

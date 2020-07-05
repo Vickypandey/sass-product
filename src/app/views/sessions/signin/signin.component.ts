@@ -66,6 +66,7 @@ export class SigninComponent implements OnInit, AfterViewInit {
     this.jwtAuth.signin(body).subscribe(
       (response) => {
         this.clicked = false;
+        this.userInfo()
         this.router.navigateByUrl(this.return);
         this.snack.open('Logged In Successfully', 'ok', {
           duration: 2000,
@@ -75,10 +76,14 @@ export class SigninComponent implements OnInit, AfterViewInit {
       },
       (err) => {
         this.clicked = false;
-        // this.errorMsg = err.error.error.user_authentication;
-        // this.snack.open(this.errorMsg, '', {
-        //   duration: 2000,
-        // });
+      }
+    );
+  }
+
+  userInfo() {
+    this.jwtAuth.userInfo().subscribe(
+      (response) => {
+        localStorage.setItem("userInfo", JSON.stringify(response))
       }
     );
   }

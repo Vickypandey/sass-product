@@ -47,7 +47,7 @@
   </button>
 
   <mat-menu #accountMenu="matMenu">
-    <button mat-menu-item [routerLink]="['/profile/overview']">
+    <button mat-menu-item [routerLink]="['/pages/profile']">
       <mat-icon>account_box</mat-icon>
       <span>Profile</span>
     </button>
@@ -59,7 +59,7 @@
       <mat-icon>notifications_off</mat-icon>
       <span>Disable alerts</span>
     </button>
-    <button mat-menu-item (click)="jwtAuth.signout()">
+    <button mat-menu-item (click)="logout()">
       <mat-icon>exit_to_app</mat-icon>
       <span>Sign out</span>
     </button>
