@@ -8,9 +8,8 @@
           <p class="text-muted m-0">Verify Email</p>
         </div>
         <form>
-          <div class="">
-            {{message}}
-          </div>
+          <h2 class="" *ngIf="errorType == 'success'" style="text-align: center;color: green;margin-bottom: 30px;">{{message}}</h2>
+          <h2 class="" *ngIf="errorType == 'error'" style="text-align: center;color: red;margin-bottom: 30px;">{{message}}</h2>
         </form>
         <div class="text-center">
           <a [routerLink]="'/sessions/signin'" class="mat-primary text-center full-width">Sign in</a>

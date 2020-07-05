@@ -106,8 +106,8 @@ export class TokenInterceptor implements HttpInterceptor {
         }
       }
     } else if (err.status == 422) {
+      let error = err.error;
       if (typeof err.error === "string") {
-        let error = err.error;
         if (error.error != undefined) {
           if (typeof error.error === "string") {
             this.showMessgeInText(error.error, "error-snackbar");
@@ -123,7 +123,11 @@ export class TokenInterceptor implements HttpInterceptor {
           this.showMessgeInText(err.error, "error-snackbar");
         }
       } else {
-        this.showMessgeInText(err.error, "error-snackbar");
+        if (error.message != undefined) {
+          this.showMessgeInText(error.message, "error-snackbar");
+        } else {
+          this.showMessgeInText(err.error, "error-snackbar");
+        }
       }
     } else if (err.status == 404) {
       if (token == null) {

@@ -23,7 +23,7 @@ export class VerifyEmailComponent implements OnInit {
   return: string;
   clicked: Boolean = false;
   parameter;
-
+  errorType = ""
   message = ""
 
   constructor(
@@ -51,10 +51,12 @@ export class VerifyEmailComponent implements OnInit {
     this.clicked = true;
     this.jwtAuth.verifyEmail(body).subscribe(
       (response) => {
+        this.errorType = "success"
         this.clicked = false;
         this.message = "Email Verified Successfully"
       },
       (err) => {
+        this.errorType = "error"
         this.message = "Invalid Link"
       }
     );
