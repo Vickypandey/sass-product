@@ -103,13 +103,13 @@ export class NavigationService {
     //     { name: "Wizard", state: "wizard" },
     //   ],
     // },
-    {
-      name: "Data Table",
-      type: "link",
-      tooltip: "Tables",
-      icon: "format_line_spacing",
-      state: "tables/mat-table",
-    },
+    // {
+    //   name: "Data Table",
+    //   type: "link",
+    //   tooltip: "Tables",
+    //   icon: "format_line_spacing",
+    //   state: "tables/mat-table",
+    // },
     // {
     //   name: "Material Kit",
     //   type: "link",

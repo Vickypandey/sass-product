@@ -68,15 +68,17 @@ export class SigninComponent implements OnInit, AfterViewInit {
         this.clicked = false;
         this.router.navigateByUrl(this.return);
         this.snack.open('Logged In Successfully', 'ok', {
-          duration: 2000
+          duration: 2000,
+          verticalPosition: "top",
+          horizontalPosition: "end",
         });
       },
       (err) => {
         this.clicked = false;
-        this.errorMsg = err.error.error.user_authentication;
-        this.snack.open(this.errorMsg, '', {
-          duration: 2000,
-        });
+        // this.errorMsg = err.error.error.user_authentication;
+        // this.snack.open(this.errorMsg, '', {
+        //   duration: 2000,
+        // });
       }
     );
   }
