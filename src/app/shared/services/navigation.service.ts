@@ -79,7 +79,6 @@ export class NavigationService {
   constructor() {
     setTimeout(() => {
       this.userInfo = JSON.parse(localStorage.getItem("userInfo"))
-      console.log(this.userInfo)
       if (this.userInfo != null) {
         if (this.userInfo.is_superuser) {
           this.iconMenu.push(this.pages)
