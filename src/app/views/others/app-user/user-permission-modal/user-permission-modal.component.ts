@@ -18,56 +18,49 @@ export class UserPermissionModalComponent implements OnInit {
   userPermissions: any[] = []
   selectedPermission: any = {}
   removable = true;
-  userDetail = {}
+  userDetail: any = {}
+  updatePermission: boolean = false
   constructor(
     public otherService: OthersService,
     public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<UserPermissionModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data
-  ) { }
+  ) {
+    this.userPermissions = this.data.permission
+  }
 
   ngOnInit(): void {
-    console.log(this.data)
     this.getAllPermission()
-    this.getUserDetail()
   }
-  getUserDetail() {
-    this.otherService.getSingleUser(this.data.id).subscribe(
-      data => {
-        this.userDetail = data
-      },
-      err => {
-      }
-    )
-  }
+
   getAllPermission() {
     this.otherService.getAllPermission().subscribe(
       data => {
-        this.permissionList = data
+        if (this.userPermissions.length == 0) {
+          this.permissionList = data
+        } else {
+          for (let j = 0; j < this.userPermissions.length; j++) {
+            for (let index = 0; index < data.length; index++) {
+              if (this.userPermissions[j].id === data[index].id) {
+                data.splice(index, 1);
+                break;
+              }
+            }
+          }
+          this.permissionList = data
+        }
       },
       err => {
       }
     )
   }
 
-  addUser() {
-    let body = {
-      "email": this.addUserForm.value.email,
-      "password": this.addUserForm.value.password,
+  close() {
+    if (this.updatePermission) {
+      this.dialogRef.close("Updated")
+    } else {
+      this.dialogRef.close()
     }
-    this.otherService.addUser(body).subscribe(
-      data => {
-        console.log(data)
-        this.snackBar.open("User Added Successfully", '', {
-          duration: 2000,
-        });
-        this.dialogRef.close("User Added Successfully")
-
-      },
-      err => {
-        console.log(err)
-      }
-    )
   }
 
   selectPermission() {
@@ -77,6 +70,7 @@ export class UserPermissionModalComponent implements OnInit {
     }
     this.otherService.addPermission(body).subscribe(
       data => {
+        this.updatePermission = true
         this.userPermissions.push(this.selectedPermission)
         this.permissionList = this.permissionList.filter(el => el.id != this.selectedPermission.id)
         this.selectedPermission = {}
@@ -97,6 +91,7 @@ export class UserPermissionModalComponent implements OnInit {
     }
     this.otherService.removePermission(body).subscribe(
       data => {
+        this.updatePermission = true
         this.userPermissions.splice(index, 1)
         this.permissionList.push(userPermission)
         this.snackBar.open("Permission Removed Successfully", '', {

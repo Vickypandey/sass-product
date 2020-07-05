@@ -59,6 +59,9 @@ export class ClientAdminUserComponent implements OnInit {
       disableClose: true,
       data : element
     })
+    this.userPermissionModalComponent.afterClosed().subscribe(result => {
+      this.ngOnInit()
+    });
   }
 
 }
