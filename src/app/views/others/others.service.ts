@@ -62,4 +62,21 @@ export class OthersService {
   editLead(id, data) {
     return this.http.put<any[]>(`${environment.apiURL}/api/v2/vendor_module/leads/` + id, data);
   }
+
+  addClientUser(data): Observable<any> {
+    return this.http.post(`${environment.apiURL}/api/v2/client_module/add_user`, data)
+  }
+
+  getSingleClientUser(id) {
+    return this.http.get<any[]>(`${environment.apiURL}/api/v2/client_module/get_user?user_id=` + id);
+  }
+
+
+  addClientPermission(data) {
+    return this.http.post<any[]>(`${environment.apiURL}/api/v2/client_module/add_permission`, data);
+  }
+
+  removeClientPermission(data) {
+    return this.http.post<any[]>(`${environment.apiURL}/api/v2/client_module/remove_permission`, data);
+  }
 }

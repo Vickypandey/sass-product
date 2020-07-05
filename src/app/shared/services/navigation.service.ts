@@ -90,6 +90,10 @@ export class NavigationService {
         } else if (this.userInfo.member_type == "Vendor" && !this.userInfo.is_superuser) {
           this.iconMenu.push(this.pages)
           this.iconMenu.push(this.leads)
+        } else if (this.userInfo.member_type == "Client" && !this.userInfo.is_superuser) {
+          this.iconMenu.push(this.pages)
+          this.iconMenu.push(this.users)
+          this.iconMenu.push(this.leads)
         }
       }
       console.log(this.iconMenu)

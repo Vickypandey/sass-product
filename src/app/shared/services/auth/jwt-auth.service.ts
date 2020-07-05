@@ -106,6 +106,9 @@ export class JwtAuthService {
   getUsers() {
     return this.http.get<any[]>(`${environment.apiURL}/api/v2/vendor_module/get_all_user`)
   }
+  getClientUsers() {
+    return this.http.get<any[]>(`${environment.apiURL}/api/v2/client_module/get_all_user`)
+  }
 
   setUserAndToken(token: String, user: User, isAuthenticated: Boolean) {
     this.isAuthenticated = isAuthenticated;

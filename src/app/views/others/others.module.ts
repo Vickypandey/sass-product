@@ -31,6 +31,9 @@ import { ClientModalComponent } from "./client/client-modal/client-modal.compone
 import { LeadComponent } from "./leads/leads.component";
 import { LeadModalComponent } from "./leads/leads-modal/leads-modal.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { ClientAdminUserComponent } from "./client-admin-user/client-admin-user.component";
+import { ClientUserPermissionModalComponent } from "./client-admin-user/client-user-permission-modal/client-user-permission-modal.component";
+import { ClientAddUserComponent } from './client-admin-user/client-add-user/client-add-user.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -52,7 +55,12 @@ import { ProfileComponent } from "./profile/profile.component";
     ClientModalComponent,
     LeadComponent,
     LeadModalComponent,
-    ProfileComponent
+    ProfileComponent,
+
+    // CLient Components
+    ClientAdminUserComponent,
+    ClientUserPermissionModalComponent,
+    ClientAddUserComponent
   ]
 })
 export class OthersModule {}

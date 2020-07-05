@@ -1,0 +1,30 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar matDialogTitle class="mat-primary m-0">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title dialog-title">New User</span>
+            <button mat-icon-button aria-label="Close dialog" (click)="dialogRef.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div mat-dialog-content class="p-24 pb-0 m-0">
+        <div class="pb-1">
+            <mat-form-field appearance="fill">
+                <mat-label>Select Permissions</mat-label>
+                <mat-select (selectionChange)="selectPermission()" [(ngModel)]="selectedPermission">
+                    <mat-option *ngFor="let permission of permissionList" [value]="permission">{{permission.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="pb-1">
+            <mat-chip-list #chipList aria-label="User selection">
+                <mat-chip *ngFor="let userPermission of userPermissions; let i = index" [selectable]="selectable"
+                    [removable]="removable" (removed)="remove(userPermission, i)">
+                    {{userPermission.name}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+    </div>
+</div>
