@@ -93,7 +93,7 @@ export class JwtAuthService {
   public signout() {
     location.reload()
     this.setUserAndToken(null, null, false);
-    this.router.navigateByUrl("sessions/signin");
+    this.router.navigate(["sessions/signin"]);
   }
 
   isLoggedIn(): Boolean {
