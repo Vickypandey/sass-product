@@ -1,7 +1,7 @@
 <div class="dialog-content-wrapper">
     <mat-toolbar matDialogTitle class="mat-primary m-0">
         <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
-            <span class="title dialog-title">New Client</span>
+            <span class="title dialog-title">New Lead</span>
             <button mat-icon-button aria-label="Close dialog" (click)="dialogRef.close()">
                 <mat-icon>close</mat-icon>
             </button>
@@ -94,8 +94,11 @@
                     <mat-label>Service Intrested In</mat-label>
                     <input name="phone" formControlName="service_intrested_in" matInput type="text">
                 </mat-form-field>
-                <textarea name="description" cols="30" rows="5" style="width: 100%;"
-                    placeholder="Write Something Here..." fornControlName="description"></textarea>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput cols="30" rows="1" style="width: 100%;"
+                        formControlName="description"></textarea>
+                </mat-form-field>
             </div>
         </form>
     </div>
