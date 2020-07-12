@@ -38,6 +38,8 @@ import { ContactComponent } from "./contact/contact.component";
 import { ContactModalComponent } from "./contact/contact-modal/contact-modal.component";
 import { ClientContactComponent } from "./client-contact/client-contact.component";
 import { ClientContactModalComponent } from "./client-contact/client-contact-modal/client-contact-modal.component";
+import { ClientLeadComponent } from "./client-leads/client-leads.component";
+import { ClientLeadModalComponent } from "./client-leads/client-leads-modal/client-leads-modal.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -59,16 +61,20 @@ import { ClientContactModalComponent } from "./client-contact/client-contact-mod
     ClientModalComponent,
     LeadComponent,
     LeadModalComponent,
+
     ProfileComponent,
     ContactComponent,
     ContactModalComponent,
-    ClientContactComponent,
-    ClientContactModalComponent,
 
     // CLient Components
     ClientAdminUserComponent,
     ClientUserPermissionModalComponent,
-    ClientAddUserComponent
+    ClientAddUserComponent,
+    ClientLeadComponent,
+    ClientLeadModalComponent,
+    ClientContactComponent,
+    ClientContactModalComponent,
+
   ]
 })
 export class OthersModule { }

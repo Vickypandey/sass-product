@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ClientAdminUserComponent } from './client-admin-user/client-admin-user.component';
 import { ContactComponent } from './contact/contact.component';
 import { ClientContactComponent } from './client-contact/client-contact.component';
+import { ClientLeadComponent } from './client-leads/client-leads.component';
 
 
 export const OthersRoutes: Routes = [
@@ -30,6 +31,11 @@ export const OthersRoutes: Routes = [
       {
         path: 'leads',
         component: LeadComponent,
+        data: { title: 'Lead', breadcrumb: 'Lead' }
+      },
+      {
+        path: 'client-leads',
+        component: ClientLeadComponent,
         data: { title: 'Lead', breadcrumb: 'Lead' }
       },
       {

@@ -58,6 +58,12 @@ export class NavigationService {
     icon: "people",
     state: "pages/users",
   }
+  clientUsers = {
+    name: "Users",
+    type: "link",
+    icon: "people",
+    state: "pages/client-users",
+  }
   leads = {
     name: "Leads",
     type: "link",
@@ -68,7 +74,7 @@ export class NavigationService {
     name: "Leads",
     type: "link",
     icon: "person_pin_circle",
-    state: "pages/client_leads",
+    state: "pages/client-leads",
   }
   contact = {
     name: "Contact",
@@ -111,7 +117,7 @@ export class NavigationService {
           this.iconMenu.push(this.leads)
         } else if (this.userInfo.member_type == "Client" && !this.userInfo.is_superuser) {
           this.iconMenu.push(this.pages)
-          this.iconMenu.push(this.users)
+          this.iconMenu.push(this.clientUsers)
           this.iconMenu.push(this.clientLeads)
           this.iconMenu.push(this.clientContact)
         }

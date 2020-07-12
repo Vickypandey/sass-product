@@ -15,7 +15,7 @@ export class ClientAdminUserComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   loading: boolean;
   errorMsg = "";
-  displayedColumns: any[] = ["id", "name", "email", "member type", "created date", "admin", "superuser", 'permission'];
+  displayedColumns: any[] = ["name", "email", "member type", "created date", "admin", "superuser", 'permission'];
   dataSource: any[];
   user: any;
   addUserComponent: MatDialogRef<ClientAddUserComponent>;

@@ -52,6 +52,17 @@ export class OthersService {
     return this.http.put<any[]>(`${environment.apiURL}/clients/` + id, data);
   }
 
+  getClientLeads() {
+    return this.http.get<any[]>(`${environment.apiURL}/api/v2/client_module/leads`);
+  }
+
+  addClientLead(data) {
+    return this.http.post<any[]>(`${environment.apiURL}/api/v2/client_module/leads`, data);
+  }
+  editClientLead(id, data) {
+    return this.http.put<any[]>(`${environment.apiURL}/api/v2/client_module/leads/` + id, data);
+  }
+
   getLeads() {
     return this.http.get<any[]>(`${environment.apiURL}/api/v2/vendor_module/leads`);
   }
