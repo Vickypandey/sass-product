@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SystemConfigService } from "app/views/system-config/system-config.service"
+import { OthersService } from "../others.service"
 import { ContactModalComponent } from "../contact/contact-modal/contact-modal.component"
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -19,7 +19,7 @@ export class ContactComponent implements OnInit {
 
   contactModalComponent: MatDialogRef<ContactModalComponent>
 
-  constructor(private systemConfigService: SystemConfigService, private _matDialog: MatDialog, public snackBar: MatSnackBar) { }
+  constructor(private othersService: OthersService, private _matDialog: MatDialog, public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -28,7 +28,7 @@ export class ContactComponent implements OnInit {
 
   getContact() {
     this.loading = true;
-    this.systemConfigService.getAllContact().subscribe(
+    this.othersService.getAllContact().subscribe(
       (response) => {
         this.contactList = response;
       },

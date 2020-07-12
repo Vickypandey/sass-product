@@ -34,6 +34,10 @@ import { ProfileComponent } from "./profile/profile.component";
 import { ClientAdminUserComponent } from "./client-admin-user/client-admin-user.component";
 import { ClientUserPermissionModalComponent } from "./client-admin-user/client-user-permission-modal/client-user-permission-modal.component";
 import { ClientAddUserComponent } from './client-admin-user/client-add-user/client-add-user.component';
+import { ContactComponent } from "./contact/contact.component";
+import { ContactModalComponent } from "./contact/contact-modal/contact-modal.component";
+import { ClientContactComponent } from "./client-contact/client-contact.component";
+import { ClientContactModalComponent } from "./client-contact/client-contact-modal/client-contact-modal.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -56,6 +60,10 @@ import { ClientAddUserComponent } from './client-admin-user/client-add-user/clie
     LeadComponent,
     LeadModalComponent,
     ProfileComponent,
+    ContactComponent,
+    ContactModalComponent,
+    ClientContactComponent,
+    ClientContactModalComponent,
 
     // CLient Components
     ClientAdminUserComponent,
@@ -63,4 +71,4 @@ import { ClientAddUserComponent } from './client-admin-user/client-add-user/clie
     ClientAddUserComponent
   ]
 })
-export class OthersModule {}
+export class OthersModule { }

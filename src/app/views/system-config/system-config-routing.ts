@@ -6,7 +6,6 @@ import { LeadSourceComponent } from "./lead-source/lead-source.component";
 import { LeadTypeComponent } from "./lead-type/lead-type.component";
 import { LeadStageComponent } from "./lead-stage/lead-stage.component"
 import { PermissionComponent } from "./permission/permission.component";
-import { ContactComponent } from "./contact/contact.component";
 
 const routes: Routes = [
   {
@@ -31,12 +30,7 @@ const routes: Routes = [
         path: "permission",
         component: PermissionComponent,
         data: { title: "Permission", breadcrumb: "Permission" },
-      },
-      {
-        path: "contact",
-        component: ContactComponent,
-        data: { title: "Contact", breadcrumb: "Contact" },
-      },
+      }
     ],
   },
 ];

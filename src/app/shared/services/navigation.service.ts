@@ -49,7 +49,7 @@ export class NavigationService {
       { name: "Lead Type", state: "lead-type" },
       { name: "Lead Stage", state: "lead-stage" },
       { name: "Permissions", state: "permission" },
-      { name: "Contact", state: "contact" },
+      // { name: "Contact", state: "contact" },
     ],
   }
   users = {
@@ -63,6 +63,24 @@ export class NavigationService {
     type: "link",
     icon: "person_pin_circle",
     state: "pages/leads",
+  }
+  clientLeads = {
+    name: "Leads",
+    type: "link",
+    icon: "person_pin_circle",
+    state: "pages/client_leads",
+  }
+  contact = {
+    name: "Contact",
+    type: "link",
+    icon: "contact_phone",
+    state: "pages/contact",
+  }
+  clientContact = {
+    name: "Contact",
+    type: "link",
+    icon: "contact_phone",
+    state: "pages/client-contact",
   }
   clients = {
     name: "Clients",
@@ -87,13 +105,15 @@ export class NavigationService {
           this.iconMenu.push(this.users)
           this.iconMenu.push(this.leads)
           this.iconMenu.push(this.clients)
+          this.iconMenu.push(this.contact)
         } else if (this.userInfo.member_type == "Vendor" && !this.userInfo.is_superuser) {
           this.iconMenu.push(this.pages)
           this.iconMenu.push(this.leads)
         } else if (this.userInfo.member_type == "Client" && !this.userInfo.is_superuser) {
           this.iconMenu.push(this.pages)
           this.iconMenu.push(this.users)
-          this.iconMenu.push(this.leads)
+          this.iconMenu.push(this.clientLeads)
+          this.iconMenu.push(this.clientContact)
         }
       }
       console.log(this.iconMenu)

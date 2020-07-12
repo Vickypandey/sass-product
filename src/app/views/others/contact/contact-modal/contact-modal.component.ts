@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-import { SystemConfigService } from "../../system-config.service"
+import { OthersService } from "../../others.service"
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
@@ -18,7 +18,7 @@ export class ContactModalComponent implements OnInit {
   btnStatus: boolean = false
   type: string = ""
   constructor(
-    public systemConfigService: SystemConfigService,
+    public othersService: OthersService,
     public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<ContactModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data
@@ -56,7 +56,7 @@ export class ContactModalComponent implements OnInit {
       "office_number": this.addContactForm.value.office_number,
       "desigination": this.addContactForm.value.desigination
     }
-    this.systemConfigService.addContact(body).subscribe(
+    this.othersService.addContact(body).subscribe(
       data => {
         this.snackBar.open("Contact Added Successfully", '', {
           duration: 2000,
@@ -78,7 +78,7 @@ export class ContactModalComponent implements OnInit {
       "office_number": this.addContactForm.value.office_number,
       "desigination": this.addContactForm.value.desigination
     }
-    this.systemConfigService.editContact(this.data.contact.id, body).subscribe(
+    this.othersService.editContact(this.data.contact.id, body).subscribe(
       data => {
         this.snackBar.open("Contact Updated Successfully", '', {
           duration: 2000,

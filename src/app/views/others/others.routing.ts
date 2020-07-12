@@ -4,6 +4,8 @@ import { ClientComponent } from './client/client.component';
 import { LeadComponent } from './leads/leads.component'
 import { ProfileComponent } from './profile/profile.component';
 import { ClientAdminUserComponent } from './client-admin-user/client-admin-user.component';
+import { ContactComponent } from './contact/contact.component';
+import { ClientContactComponent } from './client-contact/client-contact.component';
 
 
 export const OthersRoutes: Routes = [
@@ -34,6 +36,16 @@ export const OthersRoutes: Routes = [
         path: 'profile',
         component: ProfileComponent,
         data: { title: 'Profile', breadcrumb: 'Profile' }
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
+        data: { title: 'Contact', breadcrumb: 'Contact' }
+      },
+      {
+        path: 'client-contact',
+        component: ClientContactComponent,
+        data: { title: 'Contact', breadcrumb: 'Contact' }
       }
     ]
   }

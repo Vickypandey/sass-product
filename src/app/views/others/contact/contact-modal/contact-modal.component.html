@@ -1,0 +1,66 @@
+<div class="dialog-content-wrapper">
+    <mat-toolbar matDialogTitle class="mat-primary m-0">
+        <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+            <span class="title dialog-title" *ngIf="type == ''"> New Contact</span>
+            <span class="title dialog-title" *ngIf="type == 'edit'">Update Contact</span>
+            <button mat-icon-button aria-label="Close dialog" (click)="dialogRef.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div mat-dialog-content class="p-24 pb-0 m-0">
+        <form [formGroup]="addContactForm">
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input name="name" formControlName="name" matInput type="text">
+                    <mat-error
+                        *ngIf="addContactForm.controls['name'].hasError('required') && addContactForm.controls['name'].touched"
+                        class="form-error-msg"> Name is required </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Contact No.</mat-label>
+                    <input name="primary_phone" formControlName="primary_phone" matInput type="text">
+                    <mat-error
+                        *ngIf="addContactForm.controls['primary_phone'].hasError('required') && addContactForm.controls['primary_phone'].touched"
+                        class="form-error-msg"> Contact No. is required </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Email Name</mat-label>
+                    <input name="primary_email" formControlName="primary_email" matInput type="text">
+                    <mat-error
+                        *ngIf="addContactForm.controls['primary_email'].hasError('required') && addContactForm.controls['primary_email'].touched"
+                        class="form-error-msg"> First Name is required </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Office Email</mat-label>
+                    <input name="office_email" formControlName="office_email" matInput type="text">
+                </mat-form-field>
+            </div>
+            <div class="pb-1" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Office No.</mat-label>
+                    <input name="office_number" formControlName="office_number" matInput type="text">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Desigination</mat-label>
+                    <input name="desigination" formControlName="desigination" matInput type="text">
+                </mat-form-field>
+            </div>
+        </form>
+    </div>
+    <div mat-dialog-actions class="m-0 p-16" fxLayout="row" fxLayoutAlign="end center">
+        <!-- FOr Create-->
+        <button mat-raised-button color="primary" *ngIf="btnStatus && type == ''" disabled
+            aria-label="SAVE">ADD</button>
+        <button mat-raised-button color="primary" *ngIf="!btnStatus && type == ''" [disabled]="addContactForm.invalid"
+            (click)="create()" aria-label="SAVE">ADD</button>
+        <!-- FOr Edit-->
+        <button mat-raised-button color="primary" *ngIf="btnStatus && type == 'edit'" disabled
+            aria-label="SAVE">UPDATE</button>
+        <button mat-raised-button color="primary" *ngIf="!btnStatus && type == 'edit'"
+            [disabled]="addContactForm.invalid" (click)="edit()" aria-label="SAVE">UPDATE</button>
+    </div>
+</div>
