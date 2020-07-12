@@ -42,7 +42,7 @@ export class NavigationService {
     name: "System Config",
     type: "dropDown",
     tooltip: "System Config",
-    icon: "how_to_reg",
+    icon: "settings",
     state: "system-config",
     sub: [
       { name: "Lead Source", state: "lead-source" },
@@ -61,13 +61,13 @@ export class NavigationService {
   leads = {
     name: "Leads",
     type: "link",
-    icon: "people",
+    icon: "person_pin_circle",
     state: "pages/leads",
   }
   clients = {
     name: "Clients",
     type: "link",
-    icon: "people",
+    icon: "language",
     state: "pages/clients",
   }
   iconMenu: IMenuItem[] = [{
