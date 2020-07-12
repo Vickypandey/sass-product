@@ -49,6 +49,7 @@ export class NavigationService {
       { name: "Lead Type", state: "lead-type" },
       { name: "Lead Stage", state: "lead-stage" },
       { name: "Permissions", state: "permission" },
+      { name: "Contact", state: "contact" },
     ],
   }
   users = {

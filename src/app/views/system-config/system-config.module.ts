@@ -13,6 +13,8 @@ import { LeadTypeModalComponent } from './lead-type/lead-type-modal/lead-type-mo
 import { LeadStageModalComponent } from './lead-stage/lead-stage-modal/lead-stage-modal.component';
 import { PermissionComponent } from './permission/permission.component';
 import { PermissionModalComponent } from './permission/permission-modal/permission-modal.component';
+import { ContactComponent } from './contact/contact.component';
+import { ContactModalComponent } from './contact/contact-modal/contact-modal.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { PermissionModalComponent } from './permission/permission-modal/permissi
     LeadStageModalComponent,
     PermissionComponent,
     PermissionModalComponent,
+    ContactComponent,
+    ContactModalComponent
   ],
   imports: [
     CommonModule,

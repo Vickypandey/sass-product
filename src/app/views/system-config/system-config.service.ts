@@ -59,4 +59,16 @@ export class SystemConfigService {
   }
 
 
+  getAllContact() {
+    return this.http.get<any[]>(`${environment.apiURL}/api/v2/vendor_module/contacts`);
+  }
+
+  addContact(data): Observable<any> {
+    return this.http.post(`${environment.apiURL}/api/v2/vendor_module/contacts`, data)
+  }
+
+  editContact(id, data): Observable<any> {
+    return this.http.put(`${environment.apiURL}/api/v2/vendor_module/contacts/` + id, data)
+  }
+
 }
