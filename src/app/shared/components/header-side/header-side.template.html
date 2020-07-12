@@ -19,7 +19,23 @@
   </matx-search-input-over>
   <!-- Open "views/search-view/result-page.component" to understand how to subscribe to input field value -->
   <!-- open create modal form single button -->
-  <a mat-flat-button color="accent" href="" class="add-global"><mat-icon>add</mat-icon>Add</a>
+  <a mat-flat-button color="accent" [matMenuTriggerFor]="actionMenu" href="javascript:void(0)" class="add-global">
+    <mat-icon>add</mat-icon>Add
+  </a>
+  <mat-menu #actionMenu="matMenu">
+    <button mat-menu-item (click)="createUser()">
+      <span>User</span>
+    </button>
+    <button mat-menu-item (click)="createLead()">
+      <span>Lead</span>
+    </button>
+    <button mat-menu-item *ngIf="userInfo != null && userInfo.member_type == 'Vendor'" (click)="createClient()">
+      <span>Client</span>
+    </button>
+    <button mat-menu-item (click)="createContact()">
+      <span>Contact</span>
+    </button>
+  </mat-menu>
   <!-- Notification toggle button -->
   <button mat-icon-button matTooltip="Notifications" (click)="toggleNotific()" [style.overflow]="'visible'"
     class="topbar-button-right">

@@ -23,7 +23,7 @@ import { MatDialog } from "@angular/material/dialog";
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
   public authData: any = {};
-  constructor(private jwtAuth: JwtAuthService, private snack: MatSnackBar, private dialog : MatDialog) { }
+  constructor(private jwtAuth: JwtAuthService, private snack: MatSnackBar, private dialog: MatDialog) { }
 
   intercept(
     req: HttpRequest<any>,
@@ -55,7 +55,7 @@ export class TokenInterceptor implements HttpInterceptor {
         catchError((error: HttpErrorResponse) => {
 
           let errorMessage = '';
-          
+
           if (error.error instanceof ErrorEvent) {
             console.log(error)
             // this.jwtAuth.signout()
@@ -107,7 +107,24 @@ export class TokenInterceptor implements HttpInterceptor {
       }
     } else if (err.status == 422) {
       let error = err.error;
+
+      console.log(error)
       if (typeof err.error === "string") {
+        if (error.error != undefined) {
+          if (typeof error.error === "string") {
+            this.showMessgeInText(error.error, "error-snackbar");
+          } else {
+            this.showMessgeInText(
+              JSON.stringify(error.error),
+              "error-snackbar"
+            );
+          }
+        } else if (error.message != undefined) {
+          this.showMessgeInText(error.message, "error-snackbar");
+        } else {
+          this.showMessgeInText(err.error, "error-snackbar");
+        }
+      } else if (typeof error.error === "string") {
         if (error.error != undefined) {
           if (typeof error.error === "string") {
             this.showMessgeInText(error.error, "error-snackbar");
